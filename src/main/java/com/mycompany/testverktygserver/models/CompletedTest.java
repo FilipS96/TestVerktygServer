@@ -1,15 +1,14 @@
-package models;
+package com.mycompany.testverktygserver.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
-import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class CompletedTest implements Serializable {
+public class CompletedTest {
     
 @Id@GeneratedValue
     private int id;

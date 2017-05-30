@@ -1,8 +1,9 @@
-package models;
+package com.mycompany.testverktygserver.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,7 +20,7 @@ public class Question implements Serializable {
     
     @OneToMany(mappedBy="question", cascade = CascadeType.REMOVE)
     @JsonBackReference
-    private ArrayList<Option> options;
+    private List<Answer> answers;
    
     @ManyToOne
     @JsonBackReference
@@ -27,10 +28,10 @@ public class Question implements Serializable {
     
     public Question() {}
 
-    public Question(int id, String questionText, ArrayList<Option> options) {
+    public Question(int id, String questionText, List<Answer> answer) {
         this.id = id;
         this.question = questionText;
-        this.options = options;
+        this.answers = answer;
     }
 
     public int getId() {
@@ -49,12 +50,12 @@ public class Question implements Serializable {
         this.question = question;
     }
 
-    public ArrayList<Option> getOptions() {
-        return options;
+    public List<Answer> getOptions() {
+        return answers;
     }
 
-    public void setOptions(ArrayList<Option> options) {
-        this.options = options;
+    public void setOptions(ArrayList<Answer> answers) {
+        this.answers = answers;
     }
 }
 

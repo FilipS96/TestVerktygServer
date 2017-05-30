@@ -1,8 +1,8 @@
-package services;
+package com.mycompany.testverktygserver.services;
 
 import java.util.List;
-import models.Teacher;
-import repository.TeacherRepository;
+import com.mycompany.testverktygserver.models.Teacher;
+import com.mycompany.testverktygserver.repository.TeacherRepository;
 
 public class TeacherService {
     

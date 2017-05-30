@@ -1,4 +1,4 @@
-package resource;
+package com.mycompany.testverktygserver.resources;
 
 import java.util.List;
 import javax.ws.rs.Consumes;
@@ -7,8 +7,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import models.Teacher;
-import services.TeacherService;
+import com.mycompany.testverktygserver.models.Teacher;
+import com.mycompany.testverktygserver.services.TeacherService;
 
 @Path("/teacher")
 @Produces(MediaType.APPLICATION_JSON)

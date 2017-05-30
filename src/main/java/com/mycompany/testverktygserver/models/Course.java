@@ -1,37 +1,34 @@
-package models;
+package com.mycompany.testverktygserver.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Test implements Serializable {
+public class Course implements Serializable {
 
 @Id@GeneratedValue
     private int id;
     private String name;
     
-    @OneToMany
+    @OneToMany(mappedBy="course", cascade = CascadeType.REMOVE)
     @JsonManagedReference
     @JsonIgnore
-    private ArrayList<Question> questions;
+    private List<Test> tests;
 
-    @ManyToOne
-    @JsonManagedReference
-    @JsonIgnore
-    Course course;
-    public Test() {}
+    public Course() {}
 
-    public Test(int id, String name, ArrayList<Question> questions) {
+    public Course(int id, String name, ArrayList<Test> tests) {
         this.id = id;
         this.name = name;
-        this.questions = questions;
+        this.tests = tests;
     }
 
     public int getId() {
@@ -50,12 +47,13 @@ public class Test implements Serializable {
         this.name = name;
     }
 
-    public ArrayList<Question> getQuestions() {
-        return questions;
+    public List<Test> getTests() {
+        return tests;
     }
 
-    public void setQuestions(ArrayList<Question> questions) {
-        this.questions = questions;
+    public void setTests(ArrayList<Test> tests) {
+        this.tests = tests;
     }
 }
- 
+
+

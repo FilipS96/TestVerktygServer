@@ -1,9 +1,9 @@
-package repository;
+package com.mycompany.testverktygserver.repository;
 
 import java.util.List;
-import models.CompletedTest;
-import models.Course;
-import models.Test;
+import com.mycompany.testverktygserver.models.CompletedTest;
+import com.mycompany.testverktygserver.models.Course;
+import com.mycompany.testverktygserver.models.Test;
 import org.hibernate.Session;
 
 public class CourseRepository {
@@ -14,8 +14,8 @@ public class CourseRepository {
         session.beginTransaction();
         List<Course> courses = session.createCriteria(Course.class).list();
         for(Course cName : courses) {
-            cName.getName(); 
-            cName.getTests(); 
+            cName.getName().toString(); 
+            cName.getTests().size(); 
         }
         return courses;
     }
