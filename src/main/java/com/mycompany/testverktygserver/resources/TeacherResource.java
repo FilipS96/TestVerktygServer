@@ -22,9 +22,10 @@ public class TeacherResource {
     }
             
     @GET
-    @Path("/{teacherId}")
-    public List<Teacher> getTeachers(@PathParam("teacherId")String userName, String password){
-        return teacherService.getTeachers("filip", "ABC123");
+    @Path("/{user}/{password}")
+    public List<Teacher> getTeachers(@PathParam("user")String userName,
+            @PathParam("password") String password){
+        return teacherService.getTeachers(userName, password);
     };
     
     
