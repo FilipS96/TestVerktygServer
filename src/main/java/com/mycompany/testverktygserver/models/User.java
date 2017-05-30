@@ -18,6 +18,14 @@ public abstract class User {
     
     public User() {}
 
+    public int getId() {
+        return Id;
+    }
+
+    public void setId(int Id) {
+        this.Id = Id;
+    }
+    
     public String getUserName() {
         return userName;
     }
