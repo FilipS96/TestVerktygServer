@@ -20,10 +20,6 @@ public class StudentRepository {
         Session session = NewHibernateUtil.getSession();
         session.beginTransaction();
         List<Student> students = session.createCriteria(Student.class).list();
-        for(Student sName : students){
-            sName.getUserName();
-            sName.getPassword();
-        }
         return students;
     }
     

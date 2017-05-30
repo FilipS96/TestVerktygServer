@@ -14,8 +14,8 @@ public class CourseService {
         courseDB = new CourseRepository();
     }
     //Hämta lista av Kurser
-    public List<Course> getCourse(){
-        return courseDB.getCourse();
+    public List<Course> getCourses(){
+        return courseDB.getCourses();
     }
     //Hämta Test
     public List<Course> getTests(){

@@ -9,14 +9,10 @@ import org.hibernate.Session;
 public class CourseRepository {
     
     //Hämta kurs och prov
-    public List<Course> getCourse(){
+    public List<Course> getCourses(){
         Session session = NewHibernateUtil.getSession();
         session.beginTransaction();
         List<Course> courses = session.createCriteria(Course.class).list();
-        for(Course cName : courses) {
-            cName.getName().toString(); 
-            cName.getTests().size(); 
-        }
         return courses;
     }
     

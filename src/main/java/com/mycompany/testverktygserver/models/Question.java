@@ -50,11 +50,11 @@ public class Question implements Serializable {
         this.question = question;
     }
 
-    public List<Answer> getOptions() {
+    public List<Answer> getAnswers() {
         return answers;
     }
 
-    public void setOptions(ArrayList<Answer> answers) {
+    public void setAnswers(List<Answer> answers) {
         this.answers = answers;
     }
 }

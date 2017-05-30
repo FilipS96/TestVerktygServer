@@ -14,7 +14,7 @@ import javax.persistence.OneToMany;
 @Entity
 public class Test implements Serializable {
 
-@Id@GeneratedValue
+    @Id@GeneratedValue
     private int id;
     private String name;
     
@@ -26,7 +26,7 @@ public class Test implements Serializable {
     @ManyToOne
     @JsonManagedReference
     @JsonIgnore
-    Course course;
+    private Course course;
     
     public Test() {}
 
