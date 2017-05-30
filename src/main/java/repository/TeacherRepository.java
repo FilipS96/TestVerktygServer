@@ -1,7 +1,6 @@
 package repository;
 
 import java.util.List;
-import models.Student;
 import models.Teacher;
 import org.hibernate.Session;
 

@@ -14,8 +14,8 @@ public class CourseRepository {
         session.beginTransaction();
         List<Course> courses = session.createCriteria(Course.class).list();
         for(Course cName : courses) {
-            cName.getName().toString(); 
-            cName.getTests().size(); 
+            cName.getName(); 
+            cName.getTests(); 
         }
         return courses;
     }
