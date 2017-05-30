@@ -1,29 +1,22 @@
-package models;
+package com.mycompany.testverktygserver.models;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public abstract class User {
-    protected int userId;
+    @Id@GeneratedValue
+    protected int Id;
     protected String userName;
     protected String password;
     protected String firstName;
     protected String lastName;
     
     public User() {}
-
-    public User(int userId, String userName, String password, String firstName, String lastName) {
-        this.userId = userId;
-        this.userName = userName;
-        this.password = password;
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 
     public String getUserName() {
         return userName;

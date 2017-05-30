@@ -1,4 +1,4 @@
-package models;
+package com.mycompany.testverktygserver.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -9,20 +9,21 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Option implements Serializable {
+public class Answer implements Serializable {
     
 @Id@GeneratedValue
     private int id;
     private String optionText;
     private boolean correct;
+    
     @ManyToOne
     @JsonManagedReference
     @JsonIgnore
     Question question;
     
-    public Option() {}
+    public Answer() {}
 
-    public Option(int id, String optionText, boolean correct) {
+    public Answer(int id, String optionText, boolean correct) {
         this.id = id;
         this.optionText = optionText;
         this.correct = correct;

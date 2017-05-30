@@ -4,10 +4,20 @@
   <session-factory>
     <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/TestVerktygProjekt?zeroDateTimeBehavior=convertToNull</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/testverktygprojekt?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.show_sql">true</property> 
     <property name="hbm2ddl.auto">create</property>
+    
+    <mapping class="com.mycompany.testverktygserver.models.CompletedTest"/>
+    <mapping class="com.mycompany.testverktygserver.models.Course"/>
+    <mapping class="com.mycompany.testverktygserver.models.Answer"/>
+    <mapping class="com.mycompany.testverktygserver.models.Question"/>
+    <mapping class="com.mycompany.testverktygserver.models.Student"/>
+    <mapping class="com.mycompany.testverktygserver.models.Teacher"/>
+    <mapping class="com.mycompany.testverktygserver.models.Test"/>
+    <mapping class="com.mycompany.testverktygserver.models.User"/>
+    
   </session-factory>
 </hibernate-configuration>

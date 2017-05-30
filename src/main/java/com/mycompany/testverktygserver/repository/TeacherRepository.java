@@ -1,8 +1,8 @@
-package repository;
+package com.mycompany.testverktygserver.repository;
 
 import java.util.List;
-import models.Student;
-import models.Teacher;
+import com.mycompany.testverktygserver.models.Student;
+import com.mycompany.testverktygserver.models.Teacher;
 import org.hibernate.Session;
 
 public class TeacherRepository {

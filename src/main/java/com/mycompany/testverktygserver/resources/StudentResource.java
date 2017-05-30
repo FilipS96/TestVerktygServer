@@ -8,8 +8,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
-import models.Student;
-import services.StudentService;
+import com.mycompany.testverktygserver.models.Student;
+import com.mycompany.testverktygserver.services.StudentService;
 
 @Path("/students")
 @Produces(MediaType.APPLICATION_JSON)
@@ -25,9 +25,7 @@ public class StudentResource {
             
     @GET
     public List<Student> getStudents(){
-      List<Student> getAllStudents = new ArrayList();
-      getAllStudents.add(new Student());
-      return getAllStudents;
+      return studentService.getStudents();
     }
     
 }

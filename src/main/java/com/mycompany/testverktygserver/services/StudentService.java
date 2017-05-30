@@ -1,8 +1,8 @@
-package services;
+package com.mycompany.testverktygserver.services;
 
 import java.util.List;
-import models.Student;
-import repository.StudentRepository;
+import com.mycompany.testverktygserver.models.Student;
+import com.mycompany.testverktygserver.repository.StudentRepository;
 
 public class StudentService {
     
@@ -16,7 +16,7 @@ public class StudentService {
         return studentDB.getStudent(userId);
     }
     //Get Students
-    public List<Student> getStudents(String userName, String password){
+    public List<Student> getStudents(){
         return studentDB.getStudents();
     }
     

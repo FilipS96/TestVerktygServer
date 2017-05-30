@@ -1,4 +1,4 @@
-package models;
+package com.mycompany.testverktygserver.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;

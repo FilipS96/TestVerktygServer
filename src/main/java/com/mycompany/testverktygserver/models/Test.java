@@ -1,9 +1,10 @@
-package models;
+package com.mycompany.testverktygserver.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,18 +18,19 @@ public class Test implements Serializable {
     private int id;
     private String name;
     
-    @OneToMany
+    @OneToMany(mappedBy="test", cascade = CascadeType.REMOVE)
     @JsonManagedReference
     @JsonIgnore
-    private ArrayList<Question> questions;
+    private List<Question> questions;
 
     @ManyToOne
     @JsonManagedReference
     @JsonIgnore
     Course course;
+    
     public Test() {}
 
-    public Test(int id, String name, ArrayList<Question> questions) {
+    public Test(int id, String name, List<Question> questions) {
         this.id = id;
         this.name = name;
         this.questions = questions;
@@ -50,11 +52,11 @@ public class Test implements Serializable {
         this.name = name;
     }
 
-    public ArrayList<Question> getQuestions() {
+    public List<Question> getQuestions() {
         return questions;
     }
 
-    public void setQuestions(ArrayList<Question> questions) {
+    public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
 }
