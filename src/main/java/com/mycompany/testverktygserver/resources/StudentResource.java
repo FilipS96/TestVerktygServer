@@ -1,4 +1,4 @@
-package resource;
+package com.mycompany.testverktygserver.resources;
 
 import java.util.ArrayList;
 import java.util.List;

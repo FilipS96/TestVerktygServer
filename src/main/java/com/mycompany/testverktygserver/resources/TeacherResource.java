@@ -1,4 +1,4 @@
-package resource;
+package com.mycompany.testverktygserver.resources;
 
 import java.util.List;
 import javax.ws.rs.Consumes;
