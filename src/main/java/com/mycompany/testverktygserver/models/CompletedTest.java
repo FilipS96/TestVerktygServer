@@ -2,16 +2,18 @@ package com.mycompany.testverktygserver.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class CompletedTest {
+public class CompletedTest implements Serializable {
     
-@Id@GeneratedValue
+    @Id@GeneratedValue
     private int id;
+    
     private String courseName;
     private String TestName;
     private int userScore;
@@ -23,16 +25,7 @@ public class CompletedTest {
     Student student;
     
     public CompletedTest() {}
-
-    public CompletedTest(int id, String courseCode, String TestName, 
-                         int userScore, int testMaxScore) {
-        this.id = id;
-        this.courseName = courseCode;
-        this.TestName = TestName;
-        this.userScore = userScore;
-        this.testMaxScore = testMaxScore;
-    }
-
+    
     public int getId() {
         return id;
     }
@@ -45,7 +38,7 @@ public class CompletedTest {
         return courseName;
     }
 
-    public void setCourseCode(String courseName) {
+    public void setCourseName(String courseName) {
         this.courseName = courseName;
     }
 
