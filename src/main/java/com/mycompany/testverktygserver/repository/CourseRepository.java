@@ -9,7 +9,7 @@ import org.hibernate.Session;
 public class CourseRepository {
     
     //Hämta kurs och prov
-    public List<Course> getCourses(){
+    public List<Course> getCourse(){
         Session session = NewHibernateUtil.getSession();
         session.beginTransaction();
         List<Course> courses = session.createCriteria(Course.class).list();

@@ -15,7 +15,7 @@ public class CourseService {
     }
     //Hämta lista av Kurser
     public List<Course> getCourse(){
-        return courseDB.getCourses();
+        return courseDB.getCourse();
     }
     //Hämta Test
     public List<Course> getTests(){

@@ -17,8 +17,9 @@ public class TeacherResource {
     TeacherService teacherService = new TeacherService();
     
     @GET
-    public List<Teacher> getTeacher(int userId){
-        return (List<Teacher>) teacherService.getTeacher(userId);
+    @Path("/userId")
+    public Teacher getTeacher(@PathParam("userId")int userId){
+        return teacherService.getTeacher(userId);
     }
             
     @GET
