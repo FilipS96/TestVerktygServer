@@ -30,7 +30,7 @@ public class CourseResource {
     }
     
     @POST
-    @Path("/completedTest")
+    @Path("/completedtest")
     public void addCompTests(CompletedTest CompTest){
         courseService.addCompTest(CompTest);
     }
