@@ -25,9 +25,4 @@ public class CourseService {
     public void addTests(Test test){
         courseDB.addTest(test);
     }
-    //Skriva färdigt Test
-    public void addCompTest(CompletedTest CompTest){
-        courseDB.addCompTest(CompTest);
-    }
-    
 }

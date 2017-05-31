@@ -24,15 +24,8 @@ public class CourseResource {
     }
     
     @POST
-    @Path("/test")
+    @Path("/{courseId}/tests")
     public void addTests(Test test){
         courseService.addTests(test);
     }
-    
-    @POST
-    @Path("/completedtest")
-    public void addCompTests(CompletedTest CompTest){
-        courseService.addCompTest(CompTest);
-    }
-    
 }

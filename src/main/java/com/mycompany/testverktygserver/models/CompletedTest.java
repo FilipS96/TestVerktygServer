@@ -66,5 +66,7 @@ public class CompletedTest implements Serializable {
         this.testMaxScore = testMaxScore;
     }
 
-    
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }

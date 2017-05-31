@@ -1,6 +1,6 @@
 package com.mycompany.testverktygserver.resources;
 
-import java.util.ArrayList;
+import com.mycompany.testverktygserver.models.CompletedTest;
 import java.util.List;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -10,6 +10,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import com.mycompany.testverktygserver.models.Student;
 import com.mycompany.testverktygserver.services.StudentService;
+import javax.ws.rs.POST;
 
 @Path("/students")
 @Produces(MediaType.APPLICATION_JSON)
@@ -28,6 +29,11 @@ public class StudentResource {
       return studentService.getStudents();
     }
     
+    @POST
+    @Path("/{studentId}/completedtests")
+    public void addCompletedTest(@PathParam("studentId") int userId, CompletedTest completedTest) {
+        studentService.addCompletedTest(userId, completedTest);
+    }
 }
     
 

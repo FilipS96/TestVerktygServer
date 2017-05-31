@@ -35,14 +35,4 @@ public class CourseRepository {
         session.getTransaction().commit();
         session.close();
     }
-    
-    //skriva färdigt prov
-    public void addCompTest(CompletedTest CompTest) {
-        Session session = NewHibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.save(CompTest);
-        session.getTransaction().commit();
-        session.close();
-    }
-    
 }
