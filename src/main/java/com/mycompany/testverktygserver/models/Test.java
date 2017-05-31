@@ -59,5 +59,9 @@ public class Test implements Serializable {
     public void setQuestions(List<Question> questions) {
         this.questions = questions;
     }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 }
  

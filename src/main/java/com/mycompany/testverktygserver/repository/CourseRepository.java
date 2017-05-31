@@ -1,8 +1,11 @@
 package com.mycompany.testverktygserver.repository;
 
+import com.mycompany.testverktygserver.models.Answer;
 import java.util.List;
 import com.mycompany.testverktygserver.models.CompletedTest;
 import com.mycompany.testverktygserver.models.Course;
+import com.mycompany.testverktygserver.models.Question;
+import com.mycompany.testverktygserver.models.Student;
 import com.mycompany.testverktygserver.models.Test;
 import org.hibernate.Session;
 
@@ -27,11 +30,47 @@ public class CourseRepository {
         return courses;
     }
     
-    //skriva nytt test
-    public void addTest(Test test) {
+    public Course getCourses(int courseId) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Course course = (Course) session.get(Course.class, courseId);
+        return course;
+    }
+
+    public void addTests(Course courseToAddTestIn, Test test) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
+        test.setCourse(courseToAddTestIn);
         session.save(test);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public Test getTest(int testId) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Test test = (Test) session.get(Test.class, testId);
+        return test;
+    }
+
+    public void addQuestion(Test testToAddQuestionIn, Question question) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        question.setTest(testToAddQuestionIn);
+        session.save(question);
+        session.getTransaction().commit();
+        session.close();
+    }
+
+    public Question getQuestion(int questionId) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        Question question = (Question) session.get(Question.class, questionId);
+        return question;
+    }
+
+    public void addAnswer(Question questionToAddAnswerIn, Answer answer) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        answer.setQuestion(questionToAddAnswerIn);
+        session.save(answer);
         session.getTransaction().commit();
         session.close();
     }

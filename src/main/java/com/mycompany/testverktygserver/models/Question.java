@@ -57,6 +57,10 @@ public class Question implements Serializable {
     public void setAnswers(List<Answer> answers) {
         this.answers = answers;
     }
+
+    public void setTest(Test test) {
+        this.test = test;
+    }
 }
 
 

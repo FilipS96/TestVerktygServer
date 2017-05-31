@@ -1,7 +1,8 @@
 package com.mycompany.testverktygserver.resources;
 
-import com.mycompany.testverktygserver.models.CompletedTest;
+import com.mycompany.testverktygserver.models.Answer;
 import com.mycompany.testverktygserver.models.Course;
+import com.mycompany.testverktygserver.models.Question;
 import com.mycompany.testverktygserver.models.Test;
 import com.mycompany.testverktygserver.services.CourseService;
 import java.util.List;
@@ -9,6 +10,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
@@ -25,7 +27,19 @@ public class CourseResource {
     
     @POST
     @Path("/{courseId}/tests")
-    public void addTests(Test test){
-        courseService.addTests(test);
+    public void addTests(@PathParam("courseId") int courseId, Test test){
+        courseService.addTests(courseId, test);
+    }
+    
+    @POST
+    @Path("/{courseId}/tests/{testId}")
+    public void addQuestion(@PathParam("testId") int testId, Question question) {
+        courseService.addQuestion(testId, question);
+    }
+    
+    @POST
+    @Path("/{courseId}/tests/{testId}/{questionId}")
+    public void addAnswer(@PathParam("questionId") int questionId, Answer answer) {
+        courseService.addAnswer(questionId, answer);
     }
 }

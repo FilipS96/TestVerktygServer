@@ -52,6 +52,10 @@ public class Answer implements Serializable {
     public void setCorrect(boolean correct) {
         this.correct = correct;
     }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
 }
 
 
