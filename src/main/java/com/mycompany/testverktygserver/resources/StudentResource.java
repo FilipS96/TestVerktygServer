@@ -19,7 +19,7 @@ public class StudentResource {
     
     @GET
     @Path("/{studentId}")
-    public Student getStudent(@PathParam("studentId")int userId){
+    public Student getStudent(@PathParam("studentId") int userId){
         return studentService.getStudent(userId);
     }
             

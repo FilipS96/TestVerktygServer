@@ -6,16 +6,12 @@ import org.hibernate.Session;
 
 public class StudentRepository {
     
-    
-    //hämta student
     public Student getStudent(int userId) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         Student student = (Student) session.get(Student.class, userId);
-        session.close();
         return student;
     }
     
-    //hämta Studenter
     public List<Student> getStudents(){
         Session session = NewHibernateUtil.getSession();
         session.beginTransaction();
