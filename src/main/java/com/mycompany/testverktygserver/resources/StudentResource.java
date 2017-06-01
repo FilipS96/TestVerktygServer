@@ -19,6 +19,17 @@ public class StudentResource {
     StudentService studentService = new StudentService();
     
     @GET
+    @Path("/{userName}/{password}")
+    public Student login(@PathParam("userName") String userName, @PathParam("password") String password) {
+        Student student = studentService.login(userName, password);
+        System.out.println("HEJ" + student);
+        if(student == null) {
+            return null;
+        }
+        return getStudent(student.getId());
+    }
+    
+    @GET
     @Path("/{studentId}")
     public Student getStudent(@PathParam("studentId") int userId){
         return studentService.getStudent(userId);

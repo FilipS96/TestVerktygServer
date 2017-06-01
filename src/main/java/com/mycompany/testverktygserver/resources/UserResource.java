@@ -1,6 +1,6 @@
 package com.mycompany.testverktygserver.resources;
 
-import com.mycompany.testverktygserver.models.User;
+import com.mycompany.testverktygserver.models.Teacher;
 import com.mycompany.testverktygserver.services.UserService;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -21,7 +21,9 @@ public class UserResource {
     
     @GET
     @Path("/{userName}/{password}")
-    public User login(@PathParam("userName") String userName, @PathParam("password") String password) {
-        return userService.login(userName, password);
+    public Teacher login(@PathParam("userName") String userName, @PathParam("password") String password) {
+        Teacher teacher = userService.login(userName, password);
+        System.out.println("TEXTAAAAAAAAAAAAAAAAA" + teacher.getFirstName());
+        return teacher;
     }
 }
