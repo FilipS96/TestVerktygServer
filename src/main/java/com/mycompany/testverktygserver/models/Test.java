@@ -17,6 +17,7 @@ public class Test implements Serializable {
     @Id@GeneratedValue
     private int id;
     private String name;
+    private int time;
     
     @OneToMany(mappedBy="test", cascade = CascadeType.REMOVE)
     @JsonManagedReference
@@ -29,12 +30,6 @@ public class Test implements Serializable {
     private Course course;
     
     public Test() {}
-
-    public Test(int id, String name, List<Question> questions) {
-        this.id = id;
-        this.name = name;
-        this.questions = questions;
-    }
 
     public int getId() {
         return id;
@@ -62,6 +57,14 @@ public class Test implements Serializable {
 
     public void setCourse(Course course) {
         this.course = course;
+    }
+
+    public int getTime() {
+        return time;
+    }
+
+    public void setTime(int time) {
+        this.time = time;
     }
 }
  

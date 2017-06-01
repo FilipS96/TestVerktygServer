@@ -2,7 +2,6 @@ package com.mycompany.testverktygserver.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -14,9 +13,10 @@ import javax.persistence.OneToMany;
 @Entity
 public class Question implements Serializable {
     
-@Id@GeneratedValue
+    @Id@GeneratedValue
     private int id;
     private String question; 
+    private boolean multi;
     
     @OneToMany(mappedBy="question", cascade = CascadeType.REMOVE)
     @JsonBackReference
@@ -60,6 +60,14 @@ public class Question implements Serializable {
 
     public void setTest(Test test) {
         this.test = test;
+    }
+
+    public boolean isMulti() {
+        return multi;
+    }
+
+    public void setMulti(boolean multi) {
+        this.multi = multi;
     }
 }
 
