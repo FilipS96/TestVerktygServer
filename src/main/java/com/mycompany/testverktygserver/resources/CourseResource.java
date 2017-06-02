@@ -7,6 +7,7 @@ import com.mycompany.testverktygserver.models.Test;
 import com.mycompany.testverktygserver.services.CourseService;
 import java.util.List;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -29,6 +30,12 @@ public class CourseResource {
     @Path("/{courseId}/tests")
     public void addTests(@PathParam("courseId") int courseId, Test test){
         courseService.addTests(courseId, test);
+    }
+    
+    @DELETE
+    @Path("/{courseId}/tests/{testId}")
+    public void deleteTest(@PathParam("testId") int testId) {
+        courseService.deleteTest(testId);
     }
     
     @POST

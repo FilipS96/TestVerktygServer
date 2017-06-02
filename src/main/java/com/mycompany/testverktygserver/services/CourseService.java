@@ -38,5 +38,9 @@ public class CourseService {
         Question questionToAddAnswerIn = courseDB.getQuestion(questionId);
         courseDB.addAnswer(questionToAddAnswerIn, answer);
     }
+
+    public void deleteTest(int testId) {
+        courseDB.deleteTest(testId);
+    }
     
 }

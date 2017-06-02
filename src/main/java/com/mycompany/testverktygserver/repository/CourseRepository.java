@@ -74,4 +74,13 @@ public class CourseRepository {
         session.getTransaction().commit();
         session.close();
     }
+
+    public void deleteTest(int testId) {
+        Session session = NewHibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        Test persistentInstance = (Test) session.load(Test.class, testId);
+        session.delete(persistentInstance);
+        session.getTransaction().commit();
+        session.close();
+    }
 }
