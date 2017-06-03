@@ -36,13 +36,15 @@ public class CourseRepository {
         return course;
     }
 
-    public void addTests(Course courseToAddTestIn, Test test) {
+    public Test addTests(Course courseToAddTestIn, Test test) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         test.setCourse(courseToAddTestIn);
         session.save(test);
         session.getTransaction().commit();
         session.close();
+        
+        return test;
     }
 
     public Test getTest(int testId) {
@@ -51,13 +53,15 @@ public class CourseRepository {
         return test;
     }
 
-    public void addQuestion(Test testToAddQuestionIn, Question question) {
+    public Question addQuestion(Test testToAddQuestionIn, Question question) {
         Session session = NewHibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         question.setTest(testToAddQuestionIn);
         session.save(question);
         session.getTransaction().commit();
         session.close();
+        
+        return question;
     }
 
     public Question getQuestion(int questionId) {

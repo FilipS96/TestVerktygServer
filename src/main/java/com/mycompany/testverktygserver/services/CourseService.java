@@ -26,12 +26,18 @@ public class CourseService {
 
     public void addTests(int courseId, Test test) {
         Course courseToAddTestIn = courseDB.getCourses(courseId);
-        courseDB.addTests(courseToAddTestIn, test);
+        Test returnedtest = courseDB.addTests(courseToAddTestIn, test);
+        for (int i = 0; i < test.getQuestions().size(); i++) {
+            Question returnedquestion = addQuestion(returnedtest.getId(), test.getQuestions().get(i));
+            for (int j = 0; j < test.getQuestions().get(i).getAnswers().size(); j++) {
+                addAnswer(returnedquestion.getId(), test.getQuestions().get(i).getAnswers().get(j));
+            }
+        }
     }
 
-    public void addQuestion(int testId, Question question) {
+    public Question addQuestion(int testId, Question question) {
         Test testToAddQuestionIn = courseDB.getTest(testId);
-        courseDB.addQuestion(testToAddQuestionIn, question);
+        return courseDB.addQuestion(testToAddQuestionIn, question);
     }
 
     public void addAnswer(int questionId, Answer answer) {
