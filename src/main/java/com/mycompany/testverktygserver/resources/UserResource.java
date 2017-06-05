@@ -22,8 +22,8 @@ public class UserResource {
     @GET
     @Path("/{userName}/{password}")
     public Teacher login(@PathParam("userName") String userName, @PathParam("password") String password) {
+        System.out.println("wohoo: " + userName + " " + password);
         Teacher teacher = userService.login(userName, password);
-        System.out.println("TEXTAAAAAAAAAAAAAAAAA" + teacher.getFirstName());
         return teacher;
     }
 }
